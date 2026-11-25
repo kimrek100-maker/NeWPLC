@@ -1,0 +1,406 @@
+:root {
+  --plant-bg: var(--studio-bg);
+  --plant-surface: var(--studio-surface);
+  --plant-primary: var(--studio-primary);
+  --plant-text: var(--studio-text);
+  --plant-warning: var(--studio-warning);
+  --plant-danger: var(--studio-danger);
+}
+.workspace-view-tabs {
+  display: flex;
+  gap: 12px;
+  padding: 0 16px;
+  background: var(--plant-surface);
+  border-bottom: 1px solid #344350;
+  height: 38px;
+  flex-shrink: 0;
+}
+.workspace-view-tabs button {
+  border-radius: 0;
+  font-size: 11px;
+  border-bottom: 2px solid transparent;
+}
+.workspace-view-tabs [aria-selected="true"] {
+  color: var(--plant-primary);
+  border-color: var(--plant-primary);
+}
+.synoptic {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  color: var(--plant-text);
+  background: var(--plant-bg);
+}
+.synoptic-heading {
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+.synoptic-heading h2 {
+  font-size: 17px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 0 0 5px;
+}
+.synoptic-heading h2 svg {
+  color: var(--plant-primary);
+}
+.synoptic-heading span {
+  font-size: 10px;
+  color: #abbac7;
+}
+.synoptic-buttons {
+  display: flex;
+  gap: 8px;
+}
+.synoptic-buttons button {
+  min-width: 140px;
+}
+.synoptic-boundary {
+  color: var(--plant-warning);
+  font-size: 10px;
+  padding: 8px 18px;
+  background: #302b22;
+  border-block: 1px solid #57482c;
+}
+.synoptic-status {
+  min-height: 42px;
+  padding: 10px 18px;
+  font-size: 11px;
+  line-height: 1.6;
+  border-bottom: 1px solid #2d3b47;
+}
+.synoptic-status[role="alert"] {
+  color: var(--plant-danger);
+}
+.synoptic-workspace {
+  min-height: 0;
+  display: flex;
+  flex: 1;
+}
+.synoptic-stage {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.synoptic-palette {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  border-bottom: 1px solid #344350;
+  flex-wrap: wrap;
+}
+.synoptic-palette label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.synoptic-palette select {
+  width: 155px;
+  margin: 0;
+}
+.synoptic-palette small {
+  margin-left: auto;
+}
+.synoptic-canvas {
+  min-height: 230px;
+  flex: 1;
+  position: relative;
+}
+.synoptic-canvas .react-flow {
+  background: var(--plant-bg);
+}
+.synoptic-empty {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 330px;
+  text-align: center;
+  pointer-events: none;
+  color: #a8bac9;
+}
+.synoptic-empty svg {
+  color: #75a893;
+}
+.synoptic-empty h3 {
+  font-size: 16px;
+}
+.synoptic-empty p {
+  font-size: 11px;
+}
+.plant-node {
+  width: 172px;
+  background: var(--plant-surface);
+  border: 1px solid #708994;
+  border-radius: 6px;
+  padding: 10px;
+  color: #bbd1d8;
+  text-align: center;
+  position: relative;
+}
+.plant-node.unresolved {
+  border-style: dashed;
+  border-color: var(--plant-warning);
+}
+.plant-node.running {
+  color: var(--plant-primary);
+  border-color: var(--plant-primary);
+}
+.plant-node.alarm {
+  border-color: var(--plant-danger);
+  color: var(--plant-danger);
+}
+.plant-node-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 8px;
+  letter-spacing: 0.4px;
+  margin-bottom: 7px;
+  color: #b8c8d5;
+}
+.plant-node strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+.plant-node code {
+  display: block;
+  font-size: 9px;
+  color: #a3bac6;
+  max-width: 150px;
+  overflow-wrap: anywhere;
+  margin-top: 7px;
+}
+.plant-node small {
+  font-size: 8px;
+  display: block;
+  color: var(--plant-warning);
+  margin-top: 8px;
+}
+.plant-reading {
+  font:
+    16px Consolas,
+    monospace;
+  min-height: 21px;
+  margin-top: 5px;
+}
+.synoptic .react-flow__node.selected .plant-node {
+  box-shadow: 0 0 0 2px var(--plant-primary);
+}
+.synoptic .react-flow__edge-text {
+  font-size: 9px;
+  fill: #d6e2eb;
+}
+.synoptic .react-flow__edge-textbg {
+  fill: #18242e;
+}
+.synoptic .react-flow__controls button {
+  color: #dce6ef;
+  background: #223340;
+  border-bottom: 1px solid #4c6070;
+  min-height: 28px;
+}
+.synoptic .react-flow__controls button svg {
+  fill: currentColor;
+}
+.synoptic-inspector {
+  width: 285px;
+  flex-shrink: 0;
+  overflow: auto;
+  border-left: 1px solid #344350;
+  padding: 16px;
+  background: var(--plant-surface);
+  scrollbar-gutter: stable;
+}
+.synoptic-inspector fieldset {
+  margin: 0 0 20px;
+  padding: 0 0 16px;
+  border: 0;
+  border-bottom: 1px solid #344350;
+  min-width: 0;
+}
+.synoptic-inspector legend {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 0;
+  margin-bottom: 12px;
+  color: #d9e4ef;
+}
+.synoptic-inspector label {
+  margin: 0 0 12px;
+}
+.synoptic-inspector textarea {
+  height: 86px;
+  resize: none;
+  line-height: 1.6;
+  margin-top: 7px;
+}
+.synoptic-inspector small {
+  font-size: 10px;
+  line-height: 1.6;
+  display: block;
+  margin: 8px 0;
+}
+.synoptic-inspector button {
+  min-height: 36px;
+  font-size: 10px;
+}
+.position-fields {
+  display: flex;
+  gap: 10px;
+}
+.position-fields > label {
+  flex: 1;
+  min-width: 0;
+}
+.evidence {
+  border-left: 2px solid #69ae94;
+  padding: 7px 9px;
+  background: #14241f;
+  margin: 10px 0;
+}
+.evidence.unconfirmed {
+  border-color: var(--plant-warning);
+  background: #2b271f;
+}
+.evidence > span {
+  font-size: 10px;
+  color: #c6d7d1;
+}
+.evidence blockquote {
+  font-size: 10px;
+  margin: 8px 0;
+  color: #b4c4cb;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 120px;
+  overflow: auto;
+}
+.evidence label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  margin: 9px 0 2px;
+}
+.evidence input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  accent-color: var(--plant-primary);
+}
+.binding-field {
+  padding: 8px 0;
+  border-top: 1px solid #344350;
+}
+.synoptic-remove {
+  color: var(--plant-danger);
+  margin-top: 15px;
+}
+.synoptic-diagnostics {
+  font-size: 11px;
+}
+.synoptic-diagnostics summary {
+  cursor: pointer;
+  color: var(--plant-warning);
+}
+.synoptic-diagnostics p {
+  font-size: 10px;
+  line-height: 1.7;
+  border-bottom: 1px solid #344350;
+  padding-bottom: 8px;
+  overflow-wrap: anywhere;
+}
+.synoptic-simulation {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-top: 1px solid #344350;
+  min-height: 68px;
+}
+.synoptic-simulation > div {
+  flex: 1;
+  min-width: 0;
+}
+.synoptic-simulation strong {
+  font-size: 11px;
+  display: block;
+}
+.synoptic-simulation small {
+  display: block;
+  font-size: 9px;
+  line-height: 1.5;
+  margin-top: 5px;
+  max-height: 42px;
+  overflow: auto;
+}
+.synoptic-simulation button {
+  font-size: 10px;
+}
+* {
+  scrollbar-color: #354350 transparent;
+  scrollbar-width: thin;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4b6070;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #739080;
+}
+@media (prefers-reduced-motion: reduce) {
+  .spin {
+    animation: none;
+  }
+}
+@media (max-width: 1200px) {
+  .synoptic-workspace {
+    flex-direction: column;
+    overflow: auto;
+  }
+  .synoptic-inspector {
+    width: 100%;
+    max-height: 290px;
+    border-left: 0;
+    border-top: 1px solid #344350;
+    display: flex;
+    gap: 20px;
+    flex-shrink: 0;
+  }
+  .synoptic-inspector > fieldset,
+  .synoptic-inspector > details {
+    min-width: 245px;
+    flex: 1;
+  }
+  .synoptic-stage {
+    min-height: 470px;
+    flex-shrink: 0;
+  }
+  .synoptic-heading {
+    padding: 10px;
+  }
+  .synoptic-buttons button {
+    min-width: 0;
+    font-size: 10px;
+  }
+}
+@media (forced-colors: active) {
+  .plant-node,
+  .evidence {
+    border: 1px solid CanvasText;
+  }
+  * {
+    scrollbar-color: auto;
+  }
+}
+
+.workspace-view-panel{display:flex;flex-direction:column;flex:1;min-height:0}
+.evidence label{min-height:28px}

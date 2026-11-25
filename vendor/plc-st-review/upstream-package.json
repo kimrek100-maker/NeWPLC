@@ -1,0 +1,69 @@
+{
+  "name": "plc-st-review",
+  "version": "1.0.3",
+  "description": "Semantic linter, code reviewer, and team-style enforcer for IEC 61131-3 Structured Text. Runs as a CI linter, GitHub Action, GitLab CI job, or local CLI. 80 checks (incl. PLCopen and IEC 62443 sets) plus a --metrics mode (complexity, nesting, call graph, dead code) across static analysis, FB-instance integrity, and diff-based PR review.",
+  "type": "module",
+  "bin": {
+    "plc-st-review": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -p tsconfig.json --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "iec61131",
+    "structured-text",
+    "plc",
+    "code-review",
+    "tree-sitter",
+    "static-analysis"
+  ],
+  "author": "HeytalePazguato",
+  "license": "MIT",
+  "homepage": "https://github.com/HeytalePazguato/plc-st-review",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HeytalePazguato/plc-st-review.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HeytalePazguato/plc-st-review/issues"
+  },
+  "dependencies": {
+    "@gitbeaker/rest": "^43.8.0",
+    "@octokit/rest": "^22.0.1",
+    "commander": "^15.0.0",
+    "picocolors": "^1.1.1",
+    "simple-git": "^3.27.0",
+    "tree-sitter-iec61131-3-st": "^0.1.1",
+    "web-tree-sitter": "^0.26.0",
+    "yaml": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.2",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.8"
+  }
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"uninitialized-var-used.d.ts","sourceRoot":"","sources":["../../../src/engine/checks/uninitialized-var-used.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAoB,KAAK,EAAiD,MAAM,aAAa,CAAC;AAqF1G,eAAO,MAAM,oBAAoB,EAAE,KA6BlC,CAAC"}

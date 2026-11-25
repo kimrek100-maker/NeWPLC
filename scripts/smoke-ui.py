@@ -1,0 +1,25 @@
+from playwright.sync_api import sync_playwright
+with sync_playwright() as p:
+    browser=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox'])
+    page=browser.new_page(viewport={'width':1510,'height':950})
+    errors=[]
+    page.on('pageerror',lambda e:errors.append(str(e)))
+    page.goto('http://127.0.0.1:5173')
+    page.get_by_text('Backend locale',exact=True).wait_for()
+    page.locator('.monaco-editor').wait_for()
+    page.get_by_role('button',name='Salva',exact=True).click()
+    page.get_by_text('Revisione salvata in SQLite',exact=True).wait_for()
+    page.get_by_role('button',name='Analizza',exact=True).click()
+    page.get_by_text('Nessun errore rilevato dai controlli eseguiti',exact=True).wait_for()
+    page.get_by_role('button',name='Simulazione e test',exact=False).click()
+    page.get_by_role('button',name='Esegui sottoinsieme',exact=False).click()
+    page.get_by_text('Scan 3: PASS',exact=False).wait_for()
+    page.locator('.console-tabs').get_by_role('button',name='Diagnostica',exact=False).click()
+    page.screenshot(path='docs/workbench.png',full_page=True)
+    page.get_by_role('button',name='Documentazione RAG',exact=True).click()
+    page.get_by_role('button',name='Aggiungi documento',exact=False).wait_for()
+    page.get_by_role('button',name='Impostazioni',exact=True).click()
+    page.get_by_text('Inferenza ibrida',exact=True).wait_for()
+    print({'errors':errors,'title':page.title(),'flow':'save / analyze / simulate / documents / settings'})
+    assert not errors
+    browser.close()

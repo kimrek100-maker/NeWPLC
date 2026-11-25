@@ -1,0 +1,1 @@
+{"version":3,"file":"too-many-globals-used.d.ts","sourceRoot":"","sources":["../../../src/engine/checks/too-many-globals-used.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,KAAK,EAA6B,MAAM,aAAa,CAAC;AA2BpE,eAAO,MAAM,kBAAkB,EAAE,KA2BhC,CAAC"}

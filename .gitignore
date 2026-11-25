@@ -1,0 +1,13 @@
+node_modules/
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+frontend/dist/
+data/
+build/
+release/
+.env
+*.spec
+/error.log
+/premium-ui.json

@@ -1,0 +1,77 @@
+{
+  "name": "schneider-plc-ai-studio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Local AI Structured Text workbench",
+  "author": "PLC AI Studio contributors",
+  "license": "MIT",
+  "main": "desktop/main.cjs",
+  "scripts": {
+    "dev": "vite --config frontend/vite.config.ts",
+    "build": "tsc -p frontend/tsconfig.json && vite build --config frontend/vite.config.ts",
+    "desktop": "electron .",
+    "dist:win": "npm run build && electron-builder --win nsis",
+    "test:linter": "node tools/test-linter.mjs"
+  },
+  "dependencies": {
+    "@monaco-editor/react": "4.7.0",
+    "@xyflow/react": "13.0.3",
+    "lucide-react": "0.468.0",
+    "monaco-editor": "0.58.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "tree-sitter-iec61131-3-st": "0.1.2",
+    "web-tree-sitter": "0.26.3",
+    "yaml": "2.8.3"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "@vitejs/plugin-react": "6.0.2",
+    "electron": "45.4.1",
+    "electron-builder": "26.18.0",
+    "typescript": "5.9.3",
+    "vite": "8.3.8"
+  },
+  "build": {
+    "appId": "org.plcaistudio.desktop",
+    "productName": "Schneider PLC AI Studio",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "desktop/**",
+      "frontend/dist/**",
+      "tools/lint.mjs",
+      "package.json",
+      "node_modules/**",
+      "vendor/**"
+    ],
+    "extraResources": [
+      {
+        "from": "build/backend",
+        "to": "backend"
+      }
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "asarUnpack": [
+      "vendor/**",
+      "tools/**",
+      "node_modules/web-tree-sitter/**",
+      "node_modules/tree-sitter-iec61131-3-st/**",
+      "frontend/dist/**",
+      "node_modules/yaml/**"
+    ],
+    "npmRebuild": false
+  },
+  "overrides": {
+    "minimatch": "^11.0.1"
+  }
+}
